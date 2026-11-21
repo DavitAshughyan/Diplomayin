@@ -1,248 +1,343 @@
-Functional Requirements Document (FRD)
-"Learn English with AI" System
-•Document Version: 1.0
-•Document Status: Preliminary Version
-•Basis: Functional description provided by the user
-•Supported Languages: Armenian and Russian interface support— a project requirement, the         details of which are yet to be specified
-1. Purpose and General Description
-The purpose of the system is to create an online English language learning platform that integrates educational materials, practical exercises, and support from artificial intelligence (AI).
+# Functional Requirements Document (FRD)
+## "Learn English with AI" System
+
+- **Document Version:** 1.1
+- **Document Status:** Updated Draft (Post-Review)
+- **Basis:** Functional description provided by the project author and stakeholder clarifications
+- **Supported Interface Languages:** Armenian (`hy`), Russian (`ru`), and English (`en`)
+
+---
+
+## 1. Purpose and General Description
+
+The purpose of the system is to create an online English language learning platform that integrates structured educational materials, practical exercises, and artificial intelligence (AI) support.
+
 The platform is designed to help users develop six core areas of English proficiency:
-1.Grammar,
-2.Vocabulary,
-3.Listening,
-4.Reading,
-5.Writing,
-6.Speaking.
-Some of the educational materials will be prepared and compiled by the project author, while AI models will be utilized for certain tasks, explanations, assessments, and personalized recommendations.
-AI models will be used for: For the Grammar component: after administering tests (to provide an overall assessment of topic mastery).
-For the Vocabulary component: when creating daily study plans for registered users.
-For the Writing component: when generating questions, sentences, and exercises, as well as when evaluating them and providing an overall assessment (using a model similar to the one applied in the Grammar component).
-For the Speaking component: to facilitate voice-based interaction and practice with registered users, and to generate assessments of their existing skills (using models that evaluate Grammar and Pronunciation).
-For registered users, the system should function as a
-personalized online tutor: creating daily study plans, suggesting
-exercises, evaluating responses, identifying strengths and weaknesses, and
-recommending relevant learning materials.
-2. Goals
+1. Grammar
+2. Vocabulary
+3. Listening
+4. Reading
+5. Writing
+6. Speaking
+
+Core educational materials will be prepared and curated by the project author, while AI models will be utilized for contextual assistance, task generation, automated evaluation, and personalized recommendations.
+
+### AI Model Responsibilities by Module
+- **Grammar:** Analyzing test results to provide an overall assessment of topic mastery and identifying weak areas.
+- **Vocabulary:** Selecting and recommending new words for daily study plans for registered users.
+- **Writing:** Generating level-appropriate questions, sentences, and prompts, as well as evaluating user responses and providing overall feedback.
+- **Speaking:** Facilitating voice-based interaction and dialogue with registered users, and evaluating grammar and pronunciation.
+- **Contextual Help:** Answering user questions within the context of the active learning section or exercise.
+
+For registered users, the system functions as a personalized online tutor: generating daily study plans, recommending exercises, evaluating responses, identifying strengths and weaknesses, and scheduling reviews of past mistakes.
+
+---
+
+## 2. Goals
+
 The system shall:
-•provide English learning materials for A0, A1, A2, B1, and B2 levels,
-•ensure access to six core learning tracks,
-•allow users to assess their knowledge through tests and assignments,
-•track and display the user’s learning progress,
-•provide explanations, feedback, and personalized recommendations with the help of AI,
-•create a personalized daily study plan for registered users,
-•allow for the customization of the interface language and layout.
-3. Stakeholders and User Types
-3.1. Unregistered User
-An unregistered user may explore the platform, access available educational materials, and complete tasks for which registration is not required. Certain data regarding their progress must be stored in the browser's Local Storage.
-3.2. Registered User
-A registered user can save their learning history, access a personalized AI tutor, receive a daily plan, track their progress, analyze mistakes, and utilize features that require registration, including the Speaking section.
-3.3. Person Responsible for System Content
-The person responsible for content (the project author or an authorized individual) prepares and organizes the educational materials, topics, glossaries, and test questions. No specific requirements for a separate administrative panel are defined in the description.
-3.4. AI Models
-AI models support relevant learning paths by answering questions, creating or adapting tasks, checking the user's work, and providing analysis.
-4. General structure of the system
-The system's main navigation must provide access to the six learning tracks and the "Tests and Exams" section.
-The "Learn English with AI" section, intended for registered users, must include the following subsections:
-•Learning Path — completed lessons, topics, tests, answers, and learning statistics.
-•User Progress — the user's progress and achievements, skills already well-mastered, and areas requiring further work.
-•Mistake Analysis — a list of errors made by the user, along with an analysis of those errors.
-•Review System — a review of previously covered material and past mistakes, featuring exercises and tests based on this content.
-5. Functional Requirements
-Requirement identifiers are used to uniquely designate each requirement. The phrasing "shall" describes the intended behavior of the system. Features that are noted in the initial description as potential or subject to discussion are marked as preliminary/subject to clarification.
-5.1. Onboarding Questions and Proficiency Level Assessment
-•FR-001. During the first visit, the system shall present the user with general questions regarding their English proficiency and their familiarity with the platform.
-•FR-002. The screen containing these questions shall include a "Skip" button, allowing the user to bypass the questions.
-•FR-003. The system shall invite the user to take an initial proficiency assessment test.
-•FR-004. Based on the results of the initial test, the system shall determine the user's approximate current proficiency level and suggest an appropriate starting level.
-•FR-005. Whether the completion of the onboarding questions and the assessment test is mandatory shall be defined during the design phase.
-5.2. User Account and Data Storage
-•FR-006. Certain learning data and completed stages for unregistered users must be stored in Local Storage.
-•FR-007. The learning history and progress of registered users must be stored in such a way that they remain accessible during subsequent visits.
-•FR-008. Features such as the personalized AI tutor, the individual daily plan, and the "Speaking" section must be available to registered users.
-•FR-009. The specific methods for registration and login shall be defined during a separate phase of the project.
-5.3. Interface and Navigation
-•FR-010. The system shall include a common header providing access to the main educational sections and the "Tests and Exams" section.
-•FR-011. The main page shall feature cards or other visible elements that allow the user to navigate to the corresponding section.
-•FR-012. The system shall allow the interface language to be changed.
-•FR-013. The user shall be able to customize the layout of interface elements by arranging buttons and sections in an order that suits them.
-•FR-014. A relevant AI assistance button shall be available on the page for each educational track.
-5.4. "Help Button" and AI Support
-•FR-015. The user must be able to click the "Help button" and
-open a separate communication window with the AI.
-•FR-016. The AI must respond to questions related to the specific field of study.
-•FR-017. For each field of study, a specialized AI model—or an AI service with appropriate configurations—shall be provided.
-•FR-018. The AI's response should be aimed at clarifying the user's question
-and facilitating a better grasp of the study material.
-5.5. Grammar
-•FR-019. Grammar materials must be categorized according to levels A0, A1, A2, B1, and B2.
-•FR-020. Each topic page must present a general description of the topic, the rules, usage contexts, and examples.
-•FR-021. Each grammar topic must include a test section to assess knowledge.
-•FR-022. During the test, the system must display the questions and the user's responses.
-•FR-023. The system must indicate which answers are correct and which are incorrect.
-•FR-024. Upon completion of the test, the system must display the number or percentage of correct and incorrect answers.
-•FR-025. The system must provide explanations for the answers, clarifying why a given answer is correct or incorrect.
-•FR-026. The AI must be able to analyze test results and
-provide a general conclusion regarding the user's strengths and weaknesses.
-•FR-027. The grammar section should include a dedicated area for materials on synonyms and word usage, categorized by parts of speech.
-•FR-028. Materials concerning synonyms must explain the semantic differences between words and the conditions for their use.
-•FR-029. A "Frequently Asked Questions" (FAQ) section should be included on the pages dedicated to grammatical topics.
-5.6. Vocabulary
-•FR-030. Vocabulary materials must be presented in the form of glossaries/dictionaries.
-•FR-031. It must be possible to view these glossaries according to language proficiency levels: A0,            A1, A2, B1, and B2.
-•FR-032. Within level-based glossaries, words must be grouped by parts of speech—for example, nouns, verbs, and adjectives.
-•FR-033. Thematic glossaries must also be provided—for example, covering topics such as daily life, emotions, communication, work, animals, colors, travel, food, transport, and hygiene.
-•FR-034. Separate materials must be provided for phrasal verbs and idioms.
-•FR-035. Example sentences must be displayed for words and expressions.
-•FR-036. The AI must be able to suggest new words for the daily study plan, drawing from the available glossaries.
-•FR-037. Newly learned words can be used in tasks within the Writing section.
-•FR-038. A test to provide an approximate assessment of vocabulary proficiency level must be included.
-•FR-039. Following the vocabulary test, the system must display the translations of the words and provide an option to listen to their pronunciation.
-•FR-040. Example sentences and relevant images may be displayed for the words.
-•FR-041. Users must be able to isolate or mark words that are unfamiliar to them and practice them later.
-•FR-042. Vocabulary-learning games must be provided, including matching words with their translations, assembling words from individual letters, selecting the word that corresponds to an image, and determining whether an option is correct or incorrect.
-5.7. Listening
-•FR-043. The Listening section must include audio materials corresponding to levels A1, A2, B1, and B2.
-•FR-044. The audio materials must cover various topics and types of sources—for example, everyday situations, cartoons, and excerpts from films.
-•FR-045. The user must be able to listen to the material and answer questions related to it.
-•FR-046. A grammatical and vocabulary analysis must be provided for the materials.
-•FR-047. The analysis must present the verb tenses, vocabulary, expressions, and other linguistic elements used.
-•FR-048. The analysis of the materials may be prepared by the person responsible for the content or with the assistance of AI.
-5.8. Reading
-•FR-049. The Reading section must contain texts corresponding to A1, A2, B1, and B2 proficiency levels.
-•FR-050. Corresponding audio versions must be available for the texts.
-•FR-051. While the audio is playing, the system must visually highlight the portion of the text currently being spoken.
-•FR-052. Users must be able to click on a word in the text to view its translation.
-•FR-053. It must be possible to listen to the pronunciation of a word.
-•FR-054. The Reading section must include a separate subsection dedicated to books.
-5.9. Writing
-•FR-055. The Writing section must contain written tasks appropriate to the user's proficiency level.
-•FR-056. At the A1 level, tasks should include translating simple sentences, constructing sentences from given words, and providing written accounts of what has been heard.
-•FR-057. At the A2 level, similar types of tasks should be included, with a gradually increasing level of complexity.
-•FR-058. At the B1 level, the scope should expand to include written responses regarding the user's daily routine, events, and preferred topics.
-•FR-059. At the B2 level, the content should involve more in-depth questions, texts, and essays.
-•FR-060. The AI must be capable of generating questions, sentences, and other written tasks that are appropriate to the user's proficiency level.
-•FR-061. The AI must evaluate the user's written responses, assessing their grammar, vocabulary, and the overall quality of their writing.
-•FR-062. For registered users, the AI must be able to
-tailor task topics to the user's preferences.
-•FR-063. The AI can suggest writing a text or an essay
-using words learned during the current day or week.
-5.10. Speaking
-•FR-064. The "Speaking" section must be accessible to registered users.
-•FR-065. The user must be able to record their speech using a recording button.
-•FR-066. The user must be able to select or initiate a conversation topic and speak with the AI.
-•FR-067. The AI must be able to respond via voice, facilitating the flow of the dialogue.
-•FR-068. The AI must analyze the user's grammar and pronunciation.
-•FR-069. After the conversation, the AI must provide feedback regarding identified issues, strengths, and suggestions for improvement.
-•FR-070. The AI must be able to tailor conversation topics to the user's preferences.
-5.11. Tests and Exams
-•FR-071. There must be a separate "Tests and Exams" section within the system's main navigation.
-•FR-072. The section must include grammar tests, covering topics such as verb tenses and parts of speech.
-•FR-073. The section must include a test to provide an approximate assessment of the user's vocabulary level.
-•FR-074. Users should be able to practice unfamiliar vocabulary, including through the use of games.
-•FR-075. The possibility of including additional tests for the areas of Listening, Reading, Writing, and Speaking should be considered.
-•FR-076. The possibility of adding tests for preparation for IELTS and TOEFL exams should be considered. The scope of this requirement and the phase for its implementation have not yet been defined.
-5.12. Learning English through Songs
-The purpose of this section is to simultaneously develop skills in Listening, Grammar, Vocabulary, and Writing through the use of songs, making the learning process more engaging and combining enjoyment with utility.
-•FR-077. The system must include a dedicated section titled "Learning English through Songs."
-•FR-078. For each song, there must be an option to listen, as well as a grammatical analysis that covers the grammatical structures used in the song and explains their application.
-•FR-079. For each song, there must be an analysis of vocabulary and lexicon, presenting the words and expressions used along with their meanings.
-•FR-080. By listening to songs and following their content, users should be able to develop their listening skills.
-•FR-081. For each song, exercises involving filling in missing words must be provided, featuring three levels of difficulty.
-The levels of difficulty should be distinguished by the number of missing words.
-•FR-082. During the exercises, the user must listen to the song and fill in the missing words, thereby developing skills in transcribing what is heard and writing correctly.
-•FR-083. The materials and tasks in the songs section must integrate four areas: Listening, Grammar, Vocabulary, and Writing.
-5.13. AI Personal Tutor and Study Plan
-•FR-084. The AI shall create an individual daily study plan for the registered user.
-•FR-085. The daily plan shall include tasks from various fields of study.
-•FR-086. The AI shall take into account the user’s current proficiency level, past performance, and strengths and weaknesses.
-•FR-087. The AI shall consider the user’s preferences and topics of interest.
-•FR-088. The AI shall evaluate the answers to the tasks included in the plan and provide feedback.
-•FR-089. The AI shall suggest study materials based on the user’s needs and preferences.
-•FR-090. The AI shall periodically suggest reviewing previously covered material and addressing past mistakes.
-•FR-091. The AI shall be capable of generating tests based on the user’s previous mistakes.
-5.14. Learning History and Progress
-•FR-092. The "Learning Path" section must display the lessons, topics, and tests the user has completed, along with their corresponding answers.
-•FR-093. The "Learning Path" section must display learning statistics and percentage-based results.
-•FR-094. The "User Progress" section must present the user’s progress and achievements.
-•FR-095. The "User Progress" section must highlight skills that have been well mastered, as well as areas that still require further work.
-•FR-096. The "Mistake Analysis" section must display the errors made by the user.
-•FR-097. The "Review System" section must allow the user to revisit previously covered material and complete new exercises based on their past mistakes.
-•FR-098. During review sessions, the AI must be able to remind the user of topics that previously proved challenging.
-6. Proficiency Levels and Content Guidelines
-The system includes the following levels: A0, A1, A2, B1, and B2.
-•A0: Designed to introduce fundamental grammar and basic vocabulary. Simple elements of listening, reading, writing, and speaking may be incorporated into the grammar and vocabulary materials.
-•A1–B2: The volume and complexity of the materials should increase progressively.
-•The core content for the Listening and Reading sections is intended for levels A1–B2.
-•Writing tasks should increase in complexity in line with the progression of levels.
-•The Speaking section must provide registered users with the opportunity to engage in free-form or topic-based dialogue with an AI.
-7. Data Storage and Access Rules
-1.Certain progress data for unregistered users is stored in Local Storage.
-2.The learning history of a registered user must be stored in association with their account.
-3.Features such as the personalized AI tutor and the daily plan are intended for registered users.
-4.The "Speaking" section is available exclusively to registered users.
-8. Non-functional Requirements
-Presented below are the preliminary non-functional requirements derived from the functional description. Their measurable limits are to be defined during the technical design phase.
-•NFR-001. Usability: The interface must be intuitive and user-friendly, allowing for easy navigation between learning sections.
-•NFR-002. Customization: The user must be able to change the interface language and layout.
-•NFR-003. Data Persistence: Saved learning progress must remain accessible to the user during subsequent visits, subject to the implemented data storage mechanism.
-•NFR-004. Feedback: The results of tests and AI-based assessments must be presented in an understandable format.
-•NFR-005. Linguistic Appropriateness: The complexity of learning materials and tasks must align with the specified proficiency level. 
-•NFR-006. Audio and Recording: For Listening, Reading, and Speaking capabilities, the system must provide appropriate audio playback or recording functions.
-•NFR-007. Integration of AI Services: AI capabilities must be structured in such a way that the relevant module can operate within the scope of its assigned learning track.
-Detailed criteria regarding security, privacy, accessibility, performance, browser compatibility, and backup are not specified in the initial description and must be provided separately.
-9. Main Use Cases
-UC-01. First Visit
-1.The user opens the platform.
-2.The system presents initial questions.
-3.The user answers the questions or selects "Skip."
-4.The system suggests taking a proficiency level assessment test.
-5.Upon completion of the test, the system displays the estimated proficiency level and recommends a starting learning path.
-UC-02. Studying a Grammar Topic
-1.The user opens the Grammar section.
-2.The user selects a level and a topic.
-3.The user studies the rules and examples.
-4.The user takes the test for the topic.
-5.The system displays the correct and incorrect answers, the result, and explanations.
-6.The AI can provide a general analysis.
-UC-03. Using AI Assistance
-1.The user is in one of the learning sections.
-2.The user clicks the "Help" button.
-3.The AI communication window opens.
-4.The user enters their question.
-5.The relevant AI model provides an explanation.
-UC-04. Vocabulary Study
-1.The user opens the "Vocabulary" section.
-2.The user selects a level-based or thematic vocabulary list.
-3.The user studies the words, their translations, and examples.
-4.The user listens to the pronunciation of the words.
-5.The user identifies unfamiliar words.
-6.The user completes exercises or plays games based on these words.
-UC-05. Completing the Personalized Daily Plan
-1.A registered user opens the "Learn English with AI" section.
-2.The system displays the personalized daily plan.
-3.The user completes the suggested tasks.
-4.The AI checks the answers and provides feedback.
-5.The results are recorded in the user's learning history and progress tracking.
-UC-06. Oral Conversation with AI
-1.A registered user opens the "Speaking" section.
-2.The user selects or suggests a topic for conversation.
-3.The user presses the recording button and speaks. 4.	The AI responds via voice.
-5.After the conversation, the AI provides observations regarding pronunciation and grammar.
-10. Preliminary Limitations and Out-of-Scope Items
-The points listed below are not final decisions; they must be clarified during the requirements validation and technical design phases.
-1.Specific mechanisms for registration, login, and account recovery.
-2.Selection of AI models, their quantity, APIs, and usage limitations.
-3.The precise algorithm for generating the daily study plan and the number of tasks.
-4.Structure of the proficiency placement test and the grading scale.
-5.Whether all sections will be accessible without registration, or if some will be restricted.
-6.Sources for listening and reading materials, including copyright and usage permission issues.
-7.Legal and content-related restrictions regarding the use of song lyrics.
-8.Inclusion of IELTS and TOEFL preparation tests and the phase for their implementation. 
-9.Are other languages planned, in addition to Armenian and Russian?
-10.The method for saving a customized user interface layout.
-11.AI evaluation criteria and methods for verifying the accuracy of results.
-12.Policies regarding data security, privacy, and the storage of recordings.
+- Provide English learning materials for levels **A0** (Grammar and Vocabulary) and **A1, A2, B1, B2** (all core tracks).
+- Ensure access to the six core learning tracks plus "Learning English through Songs" and "Tests and Exams".
+- Allow users to assess their knowledge through topic tests and comprehensive level-based exams.
+- Track and display the user's learning progress, strengths, and areas for improvement.
+- Provide explanations, feedback, and personalized recommendations using AI.
+- Generate a personalized daily study plan for registered users.
+- Support interface localization (Armenian, Russian, English) and customizable main-page card ordering via drag-and-drop.
 
+---
 
+## 3. Stakeholders and User Types
 
+### 3.1. Unregistered User (Guest)
+An unregistered user may explore the platform, access open educational materials (Grammar, Vocabulary, Listening, Reading, Songs, and Tests), and complete tasks that do not require an account. Progress data for unregistered users is stored in the browser's `Local Storage` and migrated to their account upon registration.
 
+### 3.2. Registered User
+A registered user has full access to persistent learning history, profile preferences, the personalized AI tutor, daily study plans, mistake analysis, review sessions, and registration-only features such as the Speaking section.
+
+### 3.3. Content Administrator (Project Author)
+The person responsible for content prepares and organizes educational materials, topics, glossaries, audio/text sources, and test questions.
+- **Phase 1 (MVP):** Content is managed via structured data files or database seed scripts.
+- **Phase 2:** A dedicated Admin/CMS panel will be introduced for creating, editing, and publishing materials.
+
+### 3.4. AI Services
+External or self-hosted AI models that support learning paths by answering contextual questions, generating/adapting exercises, evaluating written and spoken responses, and analyzing user performance.
+
+---
+
+## 4. General System Structure and Access Matrix
+
+### 4.1. Main Navigation
+The system's main navigation shall provide access to:
+- The six core learning tracks: **Grammar**, **Vocabulary**, **Listening**, **Reading**, **Writing**, **Speaking**
+- **Learning English through Songs**
+- **Tests and Exams**
+- **My Learning Space** (for registered users)
+
+### 4.2. "My Learning Space" Subsections (Registered Users)
+To avoid confusion with the platform name, the registered user's personal area is titled **My Learning Space** and includes:
+- **Learning Path:** Completed lessons, topics, tests, submitted answers, and learning statistics.
+- **User Progress:** Progress metrics, achievements, mastered skills, and areas requiring further work.
+- **Mistake Analysis:** A categorized log of errors made by the user with AI-assisted explanations.
+- **Review System:** Spaced/targeted review of previously covered material and past mistakes with newly generated practice tasks.
+- **Profile & Preferences:** Account settings, interface language, target proficiency level, and topics of interest.
+
+### 4.3. Feature Access Matrix
+
+| Feature / Module | Unregistered User | Registered User | Notes |
+| :--- | :---: | :---: | :--- |
+| Onboarding & Placement Test | Yes | Yes | Progress saved in `Local Storage` for guests |
+| Grammar (Materials & Topic Tests) | Yes | Yes | AI post-test summary for registered users |
+| Vocabulary (Glossaries & Games) | Yes | Yes | Unfamiliar word lists synced upon registration |
+| Listening & Reading | Yes | Yes | Full access to A1–B2 materials |
+| Learning English through Songs | Yes | Yes | Full access to lyrics, analysis, and gap-fill tasks |
+| Tests and Exams (Comprehensive) | Yes | Yes | Results saved to account or `Local Storage` |
+| Writing (Tasks & AI Evaluation) | Limited (Tasks only) | Full (with AI Evaluation) | AI evaluation requires registration |
+| AI Help Button (Contextual Chat) | Limited / Rate-limited | Yes | Context-aware assistance |
+| Speaking (Voice Dialogue with AI) | No | Yes | Registration required |
+| My Learning Space & Daily Plan | No | Yes | Registration required |
+
+---
+
+## 5. Functional Requirements
+
+Each requirement has a unique identifier and a target implementation phase:
+- **Phase 1 (MVP):** Core platform functionality required for initial launch.
+- **Phase 2:** Extended features planned after the initial release.
+
+### 5.1. Onboarding Questions and Proficiency Level Assessment
+- **FR-001 [Phase 1]:** During the first visit, the system shall present the user with onboarding questions regarding their English proficiency and familiarity with the platform.
+- **FR-002 [Phase 1]:** The onboarding screen shall include a "Skip" button allowing the user to bypass the questions.
+- **FR-003 [Phase 1]:** The system shall invite the user to take an initial proficiency placement test.
+- **FR-004 [Phase 1]:** Based on the placement test results, the system shall estimate the user's current proficiency level (A0–B2) and recommend a starting level.
+
+### 5.2. User Account, Profile, and Data Storage
+- **FR-005 [Phase 1]:** The system shall support user registration, login, logout, and password recovery (via email/password or OAuth).
+- **FR-006 [Phase 1]:** For unregistered users, completed lessons, test scores, unfamiliar vocabulary marks, and UI layout preferences shall be stored in browser `Local Storage`.
+- **FR-007 [Phase 1]:** When an unregistered user registers or logs in, the system shall automatically migrate their existing `Local Storage` progress into their user account.
+- **FR-008 [Phase 1]:** Registered users shall have a **Profile & Preferences** page to manage their display name, interface language, target proficiency level, and preferred conversation/writing topics (e.g., technology, travel, business).
+- **FR-009 [Phase 1]:** Features such as the personalized AI tutor, daily study plan, AI writing evaluation, and the Speaking section shall be restricted to registered users.
+
+### 5.3. Interface, Localization, and Navigation
+- **FR-010 [Phase 1]:** The system shall include a persistent header providing navigation to all main learning sections, "Learning English through Songs", "Tests and Exams", and "My Learning Space" (when authenticated).
+- **FR-011 [Phase 1]:** The main page shall display interactive cards for each learning section.
+- **FR-012 [Phase 1]:** The system shall allow the user to switch the interface language between **Armenian (`hy`)**, **Russian (`ru`)**, and **English (`en`)**.
+- **FR-013 [Phase 1]:** The user shall be able to customize the order of the section cards on the main page using **drag-and-drop**, with the custom order persisted in `Local Storage` (for guests) or the user profile (for registered users).
+- **FR-014 [Phase 1]:** An AI "Help" button shall be accessible on every learning track page.
+
+### 5.4. Contextual AI "Help" Button
+- **FR-015 [Phase 1]:** Clicking the "Help" button shall open a chat drawer/modal for communicating with the AI assistant.
+- **FR-016 [Phase 1]:** The AI assistant shall be **context-aware**, receiving metadata about the user's current section, proficiency level, and active topic or exercise.
+- **FR-017 [Phase 1]:** The AI shall answer questions related to the active study material, providing clear explanations and examples.
+- **FR-018 [Phase 1]:** Unregistered users shall be subject to a configurable rate limit on AI Help queries (or prompted to register after exceeding the limit).
+
+### 5.5. Grammar
+- **FR-019 [Phase 1]:** Grammar materials shall be categorized by proficiency levels: **A0, A1, A2, B1, and B2**.
+- **FR-020 [Phase 1]:** Each grammar topic page shall present a general description, grammatical rules, usage contexts, and example sentences.
+- **FR-021 [Phase 1]:** Each grammar topic shall include a topic-level practice test.
+- **FR-022 [Phase 1]:** During the test, the system shall display questions and capture user responses.
+- **FR-023 [Phase 1]:** Upon submission, the system shall highlight correct and incorrect answers, display the score and percentage, and provide explanations for why each answer is correct or incorrect.
+- **FR-024 [Phase 1]:** For registered users, the AI shall analyze completed grammar test results and provide a summary of strengths and weaknesses.
+- **FR-025 [Phase 1]:** The Grammar section shall include a dedicated subsection for **synonyms and word usage**, categorized by parts of speech, explaining semantic differences and usage conditions.
+- **FR-026 [Phase 1]:** Grammar topic pages shall include a "Frequently Asked Questions" (FAQ) section.
+
+### 5.6. Vocabulary
+- **FR-027 [Phase 1]:** Vocabulary materials shall be presented as structured glossaries/dictionaries.
+- **FR-028 [Phase 1]:** Glossaries shall be filterable by proficiency levels **A0, A1, A2, B1, and B2**, and grouped within each level by parts of speech (e.g., nouns, verbs, adjectives).
+- **FR-029 [Phase 1]:** Thematic glossaries shall be provided (e.g., daily life, emotions, communication, work, animals, colors, travel, food, transport, hygiene).
+- **FR-030 [Phase 1]:** Separate glossaries shall be provided for **phrasal verbs** and **idioms**.
+- **FR-031 [Phase 1]:** Each word or expression shall display example sentences, audio pronunciation, and translations corresponding to the selected interface language (**Armenian** or **Russian**; when **English** interface is selected, English definitions/synonyms shall be shown, with an option to toggle HY/RU translation).
+- **FR-032 [Phase 1]:** Users shall be able to bookmark/mark unfamiliar words and practice them later in dedicated review lists.
+- **FR-033 [Phase 1]:** The AI shall select new words from available glossaries for registered users' daily study plans (`FR-076`), and newly learned words shall be reusable in Writing tasks.
+- **FR-034 [Phase 1]:** The Vocabulary section shall include a vocabulary assessment test that displays word translations, pronunciation audio, and example sentences upon completion.
+- **FR-035 [Phase 1]:** Basic vocabulary-learning games shall be provided (matching words with translations, true/false selection).
+- **FR-036 [Phase 2]:** Advanced interactive vocabulary games (assembling words from individual letters, image-to-word matching) shall be added.
+
+### 5.7. Listening
+- **FR-037 [Phase 1]:** The Listening section shall provide audio materials for levels **A1, A2, B1, and B2** (note: A0 is covered via basic pronunciation in Grammar/Vocabulary).
+- **FR-038 [Phase 1]:** Audio materials shall cover everyday situations, educational dialogues, and licensed/public-domain/TTS-generated clips.
+- **FR-039 [Phase 1]:** Users shall be able to play/pause audio, adjust playback speed, and answer comprehension questions related to the audio.
+- **FR-040 [Phase 1]:** Each listening material shall include a grammatical and vocabulary breakdown (verb tenses, key vocabulary, expressions) prepared by the content author or assisted by AI.
+
+### 5.8. Reading
+- **FR-041 [Phase 1]:** The Reading section shall provide texts categorized by levels **A1, A2, B1, and B2**.
+- **FR-042 [Phase 1]:** Corresponding audio versions (pre-recorded or TTS with word/sentence timestamps) shall be available for each text.
+- **FR-043 [Phase 1]:** While audio plays, the system shall visually highlight the currently spoken sentence or segment in real time.
+- **FR-044 [Phase 1]:** Users shall be able to click any word in the text to view its translation (in the active interface language) and listen to its pronunciation.
+- **FR-045 [Phase 1]:** The Reading section shall include a dedicated **Books** subsection featuring adapted/graded readers or public-domain books.
+
+### 5.9. Writing
+- **FR-046 [Phase 1]:** The Writing section shall provide tasks for levels **A1, A2, B1, and B2**:
+  - **A1:** Translating simple sentences, constructing sentences from given words, writing short summaries of audio clips.
+  - **A2:** Progressively more complex sentence construction and short descriptive responses.
+  - **B1:** Written responses about daily routines, events, and user-selected topics.
+  - **B2:** In-depth analytical questions, structured texts, and essays.
+- **FR-047 [Phase 1]:** The AI shall generate level-appropriate writing prompts and tasks.
+- **FR-048 [Phase 1]:** For registered users, the AI shall evaluate written submissions—assessing grammar, vocabulary, coherence, and overall quality—and provide actionable feedback.
+- **FR-049 [Phase 1]:** For registered users, the AI shall tailor writing topics to the user's profile preferences (`FR-008`) and optionally prompt them to use words learned during the current day or week.
+
+### 5.10. Speaking
+- **FR-050 [Phase 1]:** The Speaking section shall be accessible exclusively to registered users.
+- **FR-051 [Phase 1]:** The user shall be able to select a suggested topic, propose a custom topic, or use topics tailored to their profile preferences (`FR-008`) to start a conversation with the AI.
+- **FR-052 [Phase 1]:** The user shall be able to record their speech via a microphone recording button (with clear visual recording indicators).
+- **FR-053 [Phase 1]:** The AI shall respond via synthesized voice (TTS) to maintain a natural conversational flow.
+- **FR-054 [Phase 1]:** After the conversation, the AI shall analyze the user's speech and provide feedback on grammar, pronunciation, strengths, and areas for improvement.
+
+### 5.11. Tests and Exams
+- **FR-055 [Phase 1]:** The "Tests and Exams" section shall serve as the central hub for **comprehensive and level-based exams** (A0–B2) rather than duplicating individual topic quizzes.
+- **FR-056 [Phase 1]:** It shall include comprehensive Grammar exams (covering multiple verb tenses and parts of speech) and Vocabulary level-estimation exams.
+- **FR-057 [Phase 2]:** Comprehensive exams for Listening, Reading, Writing, and Speaking shall be added.
+- **FR-058 [Phase 2]:** Preparation mock tests for **IELTS** and **TOEFL** exams shall be added.
+
+### 5.12. Learning English through Songs
+- **FR-059 [Phase 1]:** The system shall include a "Learning English through Songs" section integrating Listening, Grammar, Vocabulary, and Writing.
+- **FR-060 [Phase 1]:** Each song entry shall provide audio playback (via licensed/embedded player), a grammatical analysis of structures used in the lyrics, and a vocabulary/idiom breakdown.
+- **FR-061 [Phase 1]:** Each song shall include fill-in-the-blank lyrics exercises with **three difficulty levels** determined by the percentage/number of missing words.
+- **FR-062 [Phase 1]:** Users shall listen to the song and type the missing words, receiving immediate feedback on spelling and accuracy.
+
+### 5.13. AI Personal Tutor and Daily Study Plan
+- **FR-063 [Phase 1]:** For registered users, the AI shall generate an individualized daily study plan comprising tasks across multiple learning tracks.
+- **FR-064 [Phase 1]:** The daily plan shall adapt to the user's current proficiency level, past performance, strengths/weaknesses, and profile preferences (`FR-008`).
+- **FR-065 [Phase 1]:** The AI shall evaluate answers to daily plan tasks, provide feedback, and update the user's progress metrics.
+- **FR-066 [Phase 1]:** The AI shall periodically schedule review tasks based on previously covered material and past mistakes, and generate targeted review tests.
+
+### 5.14. Learning History and Progress ("My Learning Space")
+- **FR-067 [Phase 1]:** **Learning Path** shall display completed lessons, topics, tests, submitted answers, and percentage-based statistics.
+- **FR-068 [Phase 1]:** **User Progress** shall display overall progress, achievements, mastered skills, and weak areas.
+- **FR-069 [Phase 1]:** **Mistake Analysis** shall list errors made across sections along with explanations.
+- **FR-070 [Phase 1]:** **Review System** shall allow users to revisit past topics, complete new exercises generated from their mistakes, and receive AI reminders on challenging topics.
+
+### 5.15. Content Management (Admin / CMS)
+- **FR-071 [Phase 2]:** An Admin/CMS panel shall be provided for authorized content administrators to create, edit, categorize (A0–B2), and publish Grammar, Vocabulary, Listening, Reading, Song, and Exam content without code deployments.
+
+### 5.16. Error Handling and Edge Cases
+- **FR-072 [Phase 1]:** If an AI service is unavailable, times out, or returns an invalid response, the system shall display a user-friendly error message with a "Retry" option and preserve the user's unsaved input.
+- **FR-073 [Phase 1]:** In the Speaking section, if microphone permissions are denied or no audio input is detected, the system shall display clear instructions on enabling microphone access and prevent empty submissions.
+- **FR-074 [Phase 1]:** If audio playback fails to load in Listening, Reading, or Songs, the system shall display a fallback notification and allow retrying without losing exercise progress.
+
+---
+
+## 6. Proficiency Levels and Content Guidelines
+
+- **A0 (Absolute Beginner):** Covers foundational grammar and basic vocabulary only.
+- **A1 (Beginner):** Simple grammar, core vocabulary, short listening clips, basic reading texts, and guided sentence writing.
+- **A2 (Elementary):** Increasing complexity across all six tracks.
+- **B1 (Intermediate):** Conversational fluency, everyday/workplace topics, paragraph writing, and multi-part listening/reading.
+- **B2 (Upper-Intermediate):** Complex grammar, idioms/phrasal verbs, essays, and in-depth speaking/listening materials.
+
+---
+
+## 7. Non-Functional Requirements (NFRs)
+
+- **NFR-001 (Performance & Latency):**
+  - Standard page transitions and static content loads shall complete within **2 seconds** on a standard broadband connection.
+  - Text-based AI responses (Help chat, Writing evaluation) shall begin streaming or return within **5 seconds** (95th percentile).
+  - Voice-based AI responses in Speaking shall complete within **3 seconds** after speech end detection.
+- **NFR-002 (Security & Privacy):**
+  - All client-server communication shall be encrypted using **HTTPS/TLS**.
+  - User passwords shall be hashed using a modern algorithm (e.g., `bcrypt` or `Argon2`).
+  - Voice recordings in the Speaking section shall be processed securely, and users shall be informed of retention policies (recordings deleted after analysis unless explicitly saved).
+- **NFR-003 (Responsive Design & Mobile Compatibility):**
+  - The web application shall be fully responsive across desktop (`>= 1024px`), tablet (`768px–1023px`), and mobile (`360px–767px`) viewports.
+- **NFR-004 (Browser Compatibility):**
+  - The platform shall support the latest two major versions of Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge, including Web Audio / MediaRecorder APIs for Speaking.
+- **NFR-005 (Accessibility):**
+  - The UI shall follow **WCAG 2.1 Level AA** guidelines where practical (keyboard navigation, sufficient color contrast, ARIA labels for audio controls and drag-and-drop cards).
+- **NFR-006 (Reliability & Availability):**
+  - Core non-AI learning sections (Grammar, Vocabulary, Reading, Listening) shall remain functional even if external AI services experience temporary downtime.
+
+---
+
+## 8. Main Use Cases
+
+### UC-01: First Visit and Onboarding
+- **Actor:** Unregistered User
+- **Preconditions:** User has no existing session or `Local Storage` onboarding flag.
+- **Main Flow:**
+  1. User opens the platform.
+  2. System presents initial onboarding questions.
+  3. User answers the questions (or clicks "Skip").
+  4. System invites the user to take the placement test.
+  5. Upon completion, system displays the estimated level (A0–B2) and recommends a starting path, saving the state in `Local Storage`.
+- **Alternative Flow:** If the user skips both onboarding and placement test, the system defaults to showing all levels starting from A0/A1.
+
+### UC-02: Studying a Grammar Topic
+- **Actor:** Unregistered or Registered User
+- **Preconditions:** User navigates to the Grammar section.
+- **Main Flow:**
+  1. User selects a proficiency level (A0–B2) and a topic.
+  2. User reads the rules, usage contexts, examples, and FAQ.
+  3. User completes the topic test.
+  4. System displays correct/incorrect indicators, percentage score, and answer explanations.
+  5. *(Registered User)* AI generates a summary of strengths and weaknesses and updates Learning Path.
+
+### UC-03: Using Contextual AI Help
+- **Actor:** Unregistered or Registered User
+- **Preconditions:** User is on any learning track page.
+- **Main Flow:**
+  1. User clicks the "Help" button.
+  2. System opens the AI chat window pre-loaded with the current page/exercise context.
+  3. User submits a question.
+  4. AI responds with a contextual explanation.
+- **Exception Flow:** If the AI service fails, system displays a retry prompt (`FR-072`). If an unregistered user hits the rate limit, system prompts them to register.
+
+### UC-04: Vocabulary Study and Unfamiliar Word Review
+- **Actor:** Unregistered or Registered User
+- **Main Flow:**
+  1. User opens Vocabulary and selects a level-based or thematic glossary.
+  2. User views words, translations (in active interface language), examples, and listens to pronunciation.
+  3. User marks unfamiliar words.
+  4. User practices marked words via vocabulary games.
+
+### UC-05: Listening and Reading with Synchronized Audio
+- **Actor:** Unregistered or Registered User
+- **Main Flow:**
+  1. User opens Listening or Reading and selects an A1–B2 material.
+  2. User plays the audio; in Reading, the system highlights the spoken text segment in real time.
+  3. User clicks unfamiliar words in Reading to view translations and hear pronunciation.
+  4. User answers comprehension questions and reviews the grammar/vocabulary breakdown.
+
+### UC-06: Writing Task with AI Evaluation
+- **Actor:** Registered User
+- **Preconditions:** User is logged in.
+- **Main Flow:**
+  1. User opens Writing and selects their level (A1–B2) or accepts an AI-generated prompt tailored to their preferences.
+  2. User writes and submits their response.
+  3. AI evaluates grammar, vocabulary, and coherence, returning detailed feedback.
+  4. System logs any mistakes into **Mistake Analysis**.
+
+### UC-07: Oral Conversation with AI (Speaking)
+- **Actor:** Registered User
+- **Preconditions:** User is logged in and grants microphone permission.
+- **Main Flow:**
+  1. User opens Speaking and selects or enters a conversation topic.
+  2. User presses the record button and speaks.
+  3. AI processes the speech and responds via voice.
+  4. After ending the session, AI provides feedback on pronunciation and grammar.
+- **Exception Flow:** If microphone access is denied, system displays browser permission instructions (`FR-073`).
+
+### UC-08: Learning English through Songs
+- **Actor:** Unregistered or Registered User
+- **Main Flow:**
+  1. User opens "Learning English through Songs" and selects a song.
+  2. User reviews the grammar and vocabulary breakdown.
+  3. User selects one of three difficulty levels and plays the song.
+  4. User fills in the missing lyrics and submits for immediate feedback.
+
+### UC-09: Completing the Daily Study Plan and Reviewing Mistakes
+- **Actor:** Registered User
+- **Preconditions:** User is logged in.
+- **Main Flow:**
+  1. User opens **My Learning Space** and views today's AI-generated daily plan.
+  2. User completes tasks across assigned tracks.
+  3. AI evaluates responses and updates **User Progress** and **Learning Path**.
+  4. User visits **Mistake Analysis** or **Review System** to practice past errors.
+
+---
+
+## 9. Preliminary Limitations and Technical Decisions to Finalize
+
+1. **AI Provider Selection:** Specific LLM, Speech-to-Text (STT), and Text-to-Speech (TTS) providers, token/cost budgets, and rate-limiting thresholds.
+2. **Authentication Mechanism:** Selection of auth providers (email/password, Google/Apple OAuth) and session token strategy.
+3. **Content Licensing:** Verification of public-domain, TTS, or licensed API sources (e.g., YouTube IFrame API) for Reading books, Listening clips, and Song lyrics/audio.
+4. **Daily Plan Algorithm:** Exact weighting and task count formulas for the spaced-repetition and daily plan generator.
+5. **Placement Test Scoring:** Exact question count and rubric mapping test scores to levels A0–B2.
