@@ -103,7 +103,6 @@ Diplomayin/
 │   │       ├── tts.py         # Voice synthesis + timestamps
 │   │       └── llm.py         # Prompt templates & structured outputs
 │   └── seeds/                 # Phase 1 JSON/YAML educational content
-└── docker-compose.yml         # frontend, backend, postgres, redis
 ```
 
 ---
@@ -292,9 +291,9 @@ Upon registration or login, the Next.js client sends this payload to `POST /api/
 - **Graceful Degradation (`FR-072`–`FR-074`, `NFR-006`):**
   - If LLM/STT/TTS times out (`> 10s`), FastAPI returns structured `503 Service Unavailable` with error code `AI_UNAVAILABLE`; Next.js keeps user input intact and offers a **Retry** button.
   - Non-AI endpoints (`/grammar`, `/vocabulary`, `/reading`, `/listening`) remain 100% functional if AI services are down.
-- **Deployment (Docker Compose):**
-  - `frontend` (Next.js)
-  - `backend` (FastAPI + ML models; separate GPU worker container recommended in production)
-  - `postgres` (PostgreSQL 16)
-  - `redis` (Redis 7)
-  - External: **Cloudflare R2** (S3-compatible object storage via `boto3`)
+- **Deployment Architecture (Cloud-Managed):**
+  - **Frontend (`frontend/`):** Deployed on **Vercel** (Next.js App Router, SSR/SEO, global CDN).
+  - **Backend (`backend/`):** Deployed on **Render** (FastAPI Web Service + ML models, supporting WebSockets and SSE).
+  - **Database:** **Neon** (Managed Serverless PostgreSQL, connected to FastAPI via SSL `DATABASE_URL`).
+  - **Cache & Rate Limiting:** Managed **Redis** (Render Redis or Upstash Redis).
+  - **Object Storage:** **Cloudflare R2** (S3-compatible object storage via `boto3`).
